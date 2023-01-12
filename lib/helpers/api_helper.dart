@@ -9,16 +9,16 @@ class QuotesAPIHelper {
 
   static final QuotesAPIHelper quotesAPIHelper = QuotesAPIHelper._();
 
-  String url = 'https://api.quotable.io/quotes';
+  String myUrl = 'https://api.quotable.io/quotes';
 
   Future<QuotesAPI?> fetchRandomQuote() async {
     http.Response res =
         await http.get(Uri.parse("https://api.quotable.io/random"));
 
     if (res.statusCode == 200) {
-      Map<String, dynamic> decodedData = jsonDecode(res.body);
+      Map<String, dynamic> decodes = jsonDecode(res.body);
 
-      QuotesAPI randomQuote = QuotesAPI.fromJSON(decodedData,
+      QuotesAPI randomQuote = QuotesAPI.fromJSON(decodes,
           "https://source.unsplash.com/random/1?background,nature,dark");
 
       return randomQuote;
@@ -26,50 +26,49 @@ class QuotesAPIHelper {
     return null;
   }
 
-  Future<List<QuotesAPI>?> fetchLatestQuotes() async {
-    String url = "https://api.quotable.io/quotes";
-
-    http.Response res = await http.get(Uri.parse(url));
+  Future<List<QuotesAPI>?> fetchnewQuotes() async {
+    String myUrl = "https://api.quotable.io/quotes";
+    http.Response res = await http.get(Uri.parse(myUrl));
 
     if (res.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(res.body);
-      List decodedData = data["results"];
-      List<String> imageList = [];
+      List decodes = data["results"];
+      List<String> imgL = [];
 
-      for (int i = 0; i < decodedData.length; i++) {
-        imageList.add(
+      for (int i = 0; i < decodes.length; i++) {
+        imgL.add(
             "https://source.unsplash.com/random/${i + 1}?background,nature,dark");
       }
 
-      List<QuotesAPI> latestQuotes = decodedData
-          .map((e) => QuotesAPI.fromJSON(e, imageList[decodedData.indexOf(e)]))
+      List<QuotesAPI> newQuotes = decodes
+          .map((e) => QuotesAPI.fromJSON(e, imgL[decodes.indexOf(e)]))
           .toList();
 
-      return latestQuotes;
+      return newQuotes;
     }
     return null;
   }
 
   Future<List<QuotesAPI>?> fetchQuotes(
-      {required bool isAuthCat, required String name}) async {
-    String url = (isAuthCat)
+      {required bool iscategory, required String name}) async {
+    String myUrl = (iscategory)
         ? 'https://api.quotable.io/quotes/?author=$name'
         : 'https://api.quotable.io/quotes/?tags=$name';
 
-    http.Response res = await http.get(Uri.parse(url));
+    http.Response res = await http.get(Uri.parse(myUrl));
 
+    List<String> imgL = [];
     if (res.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(res.body);
-      List decodedData = data["results"];
-      List<String> imageList = [];
+      List decodes = data["results"];
 
-      for (int i = 0; i < decodedData.length; i++) {
-        imageList.add(
+      for (int i = 0; i < decodes.length; i++) {
+        imgL.add(
             "https://source.unsplash.com/random/${i + 1}?background,$name,dark");
       }
 
-      List<QuotesAPI> quotesList = decodedData
-          .map((e) => QuotesAPI.fromJSON(e, imageList[decodedData.indexOf(e)]))
+      List<QuotesAPI> quotesList = decodes
+          .map((e) => QuotesAPI.fromJSON(e, imgL[decodes.indexOf(e)]))
           .toList();
 
       return quotesList;

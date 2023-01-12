@@ -9,11 +9,11 @@ class DBHelper {
   DBHelper._();
   static final DBHelper dbHelper = DBHelper._();
 
-  final String dbName = "LifeQuotes.db";
   final String colDbId = "id";
-  final String dbQuote = "quote";
-  final String dbAuth = "author";
+  final String dbName = "LifeQuotes.db";
   final String dbImg = "image";
+  final String dbAuth = "author";
+  final String dbQuote = "quote";
 
   Database? db;
 
@@ -75,7 +75,7 @@ class DBHelper {
     final prefs = await SharedPreferences.getInstance();
     bool isTableEmpty = prefs.getBool('isTable${tableName}Empty') ?? true;
 
-    List? res = await QuotesAPIHelper.quotesAPIHelper.fetchLatestQuotes();
+    List? res = await QuotesAPIHelper.quotesAPIHelper.fetchnewQuotes();
 
     if (isTableEmpty) {
       for (int i = 0; i < res!.length; i++) {
@@ -123,7 +123,7 @@ class DBHelper {
     await initDB(tableName: tableName);
 
     List? data = await QuotesAPIHelper.quotesAPIHelper
-        .fetchQuotes(isAuthCat: isAuthCat, name: tableName);
+        .fetchQuotes(iscategory: isAuthCat, name: tableName);
 
     final prefs = await SharedPreferences.getInstance();
     bool isTableEmpty = prefs.getBool('isTable${tableName}Empty') ?? true;

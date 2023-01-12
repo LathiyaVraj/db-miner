@@ -11,29 +11,25 @@ class CategoryOrAuthorPage extends StatefulWidget {
 
 class _CategoryOrAuthorPageState extends State<CategoryOrAuthorPage> {
   List<Category> categories = [
-    Category(category: 'business', title: 'Business'),
-    Category(category: 'sports', title: 'Sports'),
     Category(category: 'wisdom', title: 'Wisdom'),
-    Category(category: 'love', title: 'Love'),
+    Category(category: 'sports', title: 'Sports'),
     Category(category: 'motivational', title: 'Motivational'),
+    Category(category: 'love', title: 'Love'),
     Category(category: 'life', title: 'Life'),
+    Category(category: 'business', title: 'Business'),
     Category(category: 'friendship', title: 'Friendship'),
-    Category(category: 'history', title: 'History'),
     Category(category: 'politics', title: 'Politics'),
-    Category(category: 'humor', title: 'Humor'),
-    Category(category: 'inspirational', title: 'Inspirational'),
+    Category(category: 'history', title: 'History'),
   ];
 
   List<Category> authors = [
-    Category(category: 'elon_musk', title: 'Elon Musk'),
+    Category(category: 'albert_einstein', title: 'Albert Einstein'),
     Category(category: 'chanakya', title: 'Chanakya'),
     Category(category: 'a_p_j_abdul_kalam', title: 'APJ Abdul Kalam'),
-    Category(category: 'abraham_lincoln', title: 'Abraham Lincoln'),
+    Category(category: 'elon_musk', title: 'Elon Musk'),
     Category(category: 'aristotle', title: 'Aristotle'),
-    Category(category: 'albert_einstein', title: 'Albert Einstein'),
+    Category(category: 'abraham_lincoln', title: 'Abraham Lincoln'),
     Category(category: 'barack_obama', title: 'Barack Obama'),
-    Category(category: 'donald_trump', title: 'Donald Trump'),
-    Category(category: 'muhammad_ali', title: 'Muhammad Ali'),
   ];
 
   @override
