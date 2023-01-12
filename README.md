@@ -1,16 +1,4 @@
-# dbminers
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src = "https://user-images.githubusercontent.com/113905603/211983000-66b778ef-3ec7-4b25-a580-a09b93c1977e.png" height = 500 width = 250>
+<img src = "https://user-images.githubusercontent.com/113905603/211983008-93b4eb46-6589-4314-a134-60d8ba41742b.png" height = 500 width = 250> 
+<img src = "https://user-images.githubusercontent.com/113905603/211983013-9ba2a139-1e9e-4b5d-86fe-4edd7993ee90.png" height = 500 width = 250> 
+<img src = "https://user-images.githubusercontent.com/113905603/211983024-af4b481f-202f-4b32-bc57-611b7b8fc4a3.png" height = 500 width = 250> 
