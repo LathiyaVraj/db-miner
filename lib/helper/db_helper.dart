@@ -1,11 +1,8 @@
-import 'dart:typed_data';
-
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../global.dart';
-import 'img_helper.dart';
 
 class DBHelpers {
   DBHelpers._();
@@ -14,7 +11,6 @@ class DBHelpers {
   final String dbName = "animalData.db";
   final String colId = "id";
   final String colTime = "time";
-  // final String colPrice = "price";
   final String colImage = "image";
   final String colName = "name";
   final String colDescription = "description";
@@ -34,15 +30,12 @@ class DBHelpers {
     await initDB();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     for (int i = 0; i < 5; i++) {
-      Uint8List? image = await ImageAPIHelper.imageAPIHelper
-          .getImage(name: Global.animalDataTableName);
-
       String query =
           "INSERT INTO ${Global.animalDataTableName}Data($colName, $colDescription, $colImage) VALUES(?, ?, ?);";
       List args = [
         Global.animalDataTableName,
         Global.animalDesc,
-        image,
+        // image,
       ];
 
       await db?.rawInsert(query, args);
@@ -54,15 +47,12 @@ class DBHelpers {
     await initDB();
 
     for (int i = 0; i < 5; i++) {
-      Uint8List? image = await ImageAPIHelper.imageAPIHelper
-          .getImage(name: Global.animalDataTableName);
-
       String query =
           "UPDATE ${Global.animalDataTableName}Data SET $colName=?, $colDescription=?, $colImage=? WHERE $colId = ?;";
       List args = [
         Global.animalDataTableName,
         Global.animalDesc,
-        image,
+        // image,
         i + 1,
       ];
 

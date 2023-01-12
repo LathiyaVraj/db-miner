@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'details.dart';
 import 'global.dart';
-import 'helper/img_helper.dart';
 
 void main() {
   runApp(
@@ -43,8 +42,6 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           FutureBuilder(
-            future: ImageAPIHelper.imageAPIHelper
-                .getImage(name: 'background,wild animal'),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Center(
@@ -62,7 +59,8 @@ class _HomePageState extends State<HomePage> {
                         const Color(0xffC19E82).withOpacity(0.6),
                         BlendMode.darken,
                       ),
-                      image: MemoryImage(data),
+                      image: NetworkImage(
+                          "https://advancedfamilyeyecare.com/wp-content/uploads/2021/04/owl-eyes-featured.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -93,10 +91,9 @@ class _HomePageState extends State<HomePage> {
           Stack(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 280),
                 width: width,
-                height: height * 0.65,
-                padding: const EdgeInsets.only(left: 26, right: 26),
+                height: double.infinity,
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: const BorderRadius.only(
@@ -114,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      SizedBox(height: 15),
+                      SizedBox(height: 70),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).pushNamed("details",
@@ -122,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 0.14,
+                          height: height * 0.18,
                           width: width,
                           decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
@@ -152,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 0.14,
+                          height: height * 0.18,
                           width: width,
                           decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
@@ -182,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 0.14,
+                          height: height * 0.18,
                           width: width,
                           decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
@@ -212,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 0.14,
+                          height: height * 0.18,
                           width: width,
                           decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
@@ -243,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 0.14,
+                          height: height * 0.18,
                           width: width,
                           decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.5),

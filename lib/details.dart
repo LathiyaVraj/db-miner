@@ -17,19 +17,6 @@ class _Details_PageState extends State<Details_Page> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          // Container(
-          //   height: height,
-          //   width: width,
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //       fit: BoxFit.cover,
-          //       opacity: 0.5,
-          //       image: NetworkImage(
-          //           "https://media.istockphoto.com/id/1347249084/photo/relaxing-canadian-timberwolves.jpg?b=1&s=170667a&w=0&k=20&c=q7tjAi7XliVoy9bNO6h99c6w-7yXDHx5LYujUVXavQA="),
-          //     ),
-          //   ),
-          // ),
-
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 280),
@@ -52,7 +39,7 @@ class _Details_PageState extends State<Details_Page> {
                 )),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Container(
